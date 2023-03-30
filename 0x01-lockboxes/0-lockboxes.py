@@ -1,12 +1,21 @@
+#!/usr/bin/python3
+"""
+Contains a function called canUnlockAll
+"""
+
+
 def canUnlockAll(boxes):
-    n = len(boxes)
-    unlocked = [False] * n  # Initially all boxes are locked except the first one
-    unlocked[0] = True  # The first box is unlocked
-    stack = [0]  # Start with the first box
-    while stack:
-        box = stack.pop()
-        for key in boxes[box]:
-            if key >= 0 and key < n and not unlocked[key]:
-                unlocked[key] = True
-                stack.append(key)
-    return all(unlocked)
+    """
+    Determines if all boxes can be opened
+    """
+    keys = set()
+
+    for box_id, box in enumerate(boxes):
+        if len(box) == 0 or box_id == 0:
+            keys.add(box_id)
+        for key in box:
+            if key < len(boxes) and key != box_id:
+                keys.add(key)
+        if len(keys) == len(boxes):
+            return True
+    return False
