@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""This is a script that reads stdin line by line and computes metrics"""
+"""Script that reads stdin line by line and computes metrics"""
 
 import sys
 
@@ -8,9 +8,9 @@ import sys
 def printsts(dic, size):
     """ WWPrints information """
     print("File size: {:d}".format(size))
-    for m in sorted(dic.keys()):
-        if dic[m] != 0:
-            print("{}: {:d}".format(i, dic[m]))
+    for i in sorted(dic.keys()):
+        if dic[i] != 0:
+            print("{}: {:d}".format(i, dic[i]))
 
 
 sts = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
